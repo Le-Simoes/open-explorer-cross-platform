@@ -3,7 +3,6 @@
 A cross platform NodeJs module to open a folder in the native os file system.
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/63a5c0855d6d4ee087416016b8c718ae)](https://app.codacy.com/gh/leandrosimoes/open-explorer-cross-platform/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![Node.js CI](https://github.com/leandrosimoes/open-explorer-cross-platform/actions/workflows/nodeci.yml/badge.svg)](https://github.com/leandrosimoes/open-explorer-cross-platform/actions/workflows/nodeci.yml)
 
 ## Installation
 
