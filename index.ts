@@ -1,6 +1,6 @@
-import os from 'node:os'
+import { spawnSync } from 'node:child_process'
 
-import { windows, linux, macos } from './src/services/index.js'
+import { getPlatformCommand } from './src/utils/index.js'
 
 export type Platform = 'linux' | 'win32' | 'darwin'
 
@@ -30,16 +30,20 @@ export type Platform = 'linux' | 'win32' | 'darwin'
  * ```
  */
 export function open(path: string, platform?: Platform) {
-    switch (platform || os.platform()) {
-        case 'linux':
-            return linux.open(path)
-        case 'win32':
-            return windows.open(path)
-        case 'darwin':
-            return macos.open(path)
-        default:
-            throw new Error('Unsupported platform')
-    }
+    return new Promise<void>((resolve, reject) => {
+        const command = getPlatformCommand(platform)
+
+        if (!command) return reject('Unsupported platform')
+
+        const process = spawnSync(command, [path])
+        const errorText = process.stderr.toString().trim()
+
+        if (errorText) {
+            reject(new Error(errorText))
+        } else {
+            resolve()
+        }
+    })
 }
 
 export default open

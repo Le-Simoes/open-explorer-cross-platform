@@ -3,4 +3,4 @@ node_modules/
 *.md
 *.config.*
 dist/
-src/apis/Moises/
+*.test.*

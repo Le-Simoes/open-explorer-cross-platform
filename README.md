@@ -19,9 +19,25 @@ yarn add open-explorer-cross-platform
 ## Usage
 
 ```typescript
-import { openExplorer } from 'open-explorer-cross-platform';
+import openExplorer from 'open-explorer-cross-platform';
 
 await openExplorer('path/to/folder');
+```
+
+Or if you want for some reason to force a specific platform:
+
+```typescript
+import openExplorer, { Platform } from 'open-explorer-cross-platform';
+
+const platform: Platform = 'linux'; // or 'win32' or 'darwin'
+
+await openExplorer('path/to/folder', platform);
+```
+
+## Typings exported
+
+```typescript
+export type Platform = 'linux' | 'win32' | 'darwin';
 ```
 
 ## License
