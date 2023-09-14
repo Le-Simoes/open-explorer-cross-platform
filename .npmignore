@@ -1,0 +1,11 @@
+node_modules/
+.vscode/
+.husky/
+.github/
+.codacy.yml
+.eslintrc
+.eslintignore
+.gitignore
+.prettierrc
+.prettierignore
+commitlint.config.js

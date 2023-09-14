@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "module": "Node16",
+        "moduleResolution": "node16",
+        "declaration": true,
+        "pretty": true,
+        "sourceMap": true,
+        "target": "ESNext",
+        "resolveJsonModule": true,
+        "outDir": "./dist",
+        "allowJs": true,
+        "forceConsistentCasingInFileNames": true,
+        "importHelpers": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "baseUrl": ".",
+        "esModuleInterop": true,
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "index.ts",
+        "src/**/*.ts",
+    ],
+    "exclude": [
+        "node_modules",
+    ],
+    "ts-node": {
+        "transpileOnly": true,
+        "files": true,
+        "experimentalResolver": true,
+    }
+}

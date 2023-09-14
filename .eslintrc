@@ -1,0 +1,74 @@
+{
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "tsconfigRootDir": "."
+    },
+    "rules": {
+        "comma-dangle": "off",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always",
+                "groups": [
+                    "/^@/",
+                    "module",
+                    [
+                        "parent",
+                        "sibling",
+                        "index"
+                    ],
+                ],
+                "alphabetize": {
+                    "order": "asc",
+                    "ignoreCase": true
+                }
+            }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "trailingComma": "es5",
+                "tabWidth": 4,
+                "semi": false,
+                "singleQuote": true,
+                "endOfLine": "auto"
+            }
+            
+        ]
+    },
+    "plugins": [
+        "import",
+        "prettier",
+        "@typescript-eslint",
+        "import-helpers",
+        "unused-imports"
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".ts"],
+          "paths": ["src"]
+        }
+      }
+    }
+}
