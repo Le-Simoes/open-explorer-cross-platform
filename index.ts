@@ -1,4 +1,6 @@
 import { spawnSync } from 'node:child_process'
+import { existsSync } from 'node:fs'
+import { dirname } from 'node:path'
 
 import { getPlatformCommand } from './src/utils/index.js'
 
@@ -14,7 +16,7 @@ export type Platform = 'linux' | 'win32' | 'darwin'
  * ```ts
  * try {
  *      const path = path.resolve("./")
- *      await open(path)
+ *      await openExplorer(path)
  * } catch (error) {
  *      console.error(error)
  * }
@@ -23,27 +25,28 @@ export type Platform = 'linux' | 'win32' | 'darwin'
  * ```ts
  * try {
  *      const path = path.resolve("./")
- *      await open(path, "win32")
+ *      await openExplorer(path, "win32")
  * } catch (error) {
  *      console.error(error)
  * }
  * ```
  */
-export function open(path: string, platform?: Platform) {
+export default function openExplorer(path: string, platform?: Platform) {
     return new Promise<void>((resolve, reject) => {
         const command = getPlatformCommand(platform)
 
         if (!command) return reject('Unsupported platform')
 
-        const process = spawnSync(command, [path])
+        if (!existsSync(path)) return reject('Path does not exist')
+
+        const directoryPath = dirname(path)
+
+        const process = spawnSync(command, [directoryPath])
+
         const errorText = process.stderr.toString().trim()
 
-        if (errorText) {
-            reject(new Error(errorText))
-        } else {
-            resolve()
-        }
+        if (errorText) return reject(new Error(errorText))
+
+        resolve()
     })
 }
-
-export default open
