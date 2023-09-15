@@ -6,3 +6,4 @@ exclude_paths:
   - '.inputs/**'
   - '.outputs/**'
   - '**.md'
+  - '**.json'
