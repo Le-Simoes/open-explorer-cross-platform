@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process'
-import { existsSync } from 'node:fs'
+import { existsSync, statSync } from 'node:fs'
 import { dirname } from 'node:path'
 
 import { getPlatformCommand } from './src/utils/index.js'
@@ -39,9 +39,13 @@ export default function openExplorer(path: string, platform?: Platform) {
 
         if (!existsSync(path)) return reject('Path does not exist')
 
-        const directoryPath = dirname(path)
+        const fileStat = statSync(path)
 
-        const process = spawnSync(command, [directoryPath])
+        if (!fileStat.isDirectory() && !fileStat.isFile()) return reject('Path is not a file or directory')
+
+        if (fileStat.isFile()) path = dirname(path)
+
+        const process = spawnSync(command, [path])
 
         const errorText = process.stderr.toString().trim()
 
