@@ -7,19 +7,19 @@ A cross platform NodeJs module to open a folder in the native os file system.
 ## Installation
 
 ```bash
-npm install open-explorer-cross-platform
+npm install @lesimoes.dev/open-explorer-cross-platform
 ```
 
 or
 
 ```bash
-yarn add open-explorer-cross-platform
+yarn add @lesimoes.dev/open-explorer-cross-platform
 ```
 
 ## Usage
 
 ```typescript
-import openExplorer from 'open-explorer-cross-platform';
+import openExplorer from '@lesimoes.dev/open-explorer-cross-platform';
 
 await openExplorer('path/to/folder');
 ```
@@ -27,7 +27,7 @@ await openExplorer('path/to/folder');
 Or if you want for some reason to force a specific platform:
 
 ```typescript
-import openExplorer, { Platform } from 'open-explorer-cross-platform';
+import openExplorer, { Platform } from '@lesimoes.dev/open-explorer-cross-platform';
 
 const platform: Platform = 'linux'; // or 'win32' or 'darwin'
 
