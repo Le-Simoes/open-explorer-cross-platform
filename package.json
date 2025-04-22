@@ -1,6 +1,6 @@
 {
-  "name": "open-explorer-cross-platform",
-  "version": "1.0.3",
+  "name": "@lesimoes.dev/open-explorer-cross-platform",
+  "version": "1.0.4",
   "description": "A cross platform NodeJs module to open a folder in the native os file system",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -14,8 +14,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leandrosimoes/open-explorer-cross-platform.git",
-    "baseUrl": "https://github.com/leandrosimoes/open-explorer-cross-platform"
+    "url": "git+https://github.com/Le-Simoes/open-explorer-cross-platform.git",
+    "baseUrl": "https://github.com/Le-Simoes/open-explorer-cross-platform"
   },
   "keywords": [
     "open",
